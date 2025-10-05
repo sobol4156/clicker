@@ -1,20 +1,50 @@
-.clicker {
+:host {
   display: flex;
-  justify-content: center;
-  align-items: center;
   flex-direction: column;
-  height: 100%;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.clicker {
+  position: relative;
+  text-align: center;
+
+  &__wrapper {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+  }
 
   &__main-item {
-    cursor: pointer;
-    transition: all 0.3s ease;
-
-    &:hover {
-      transform: scale(1.05);
-    }
+    transition: transform 0.2s ease;
+    user-select: none;
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
 
     &:active {
-      transform: scale(0.92);
+      transform: scale(0.95);
     }
+  }
+
+  &__popup {
+    position: absolute;
+    font-size: 24px;
+    font-weight: bold;
+    color: #ffdd55;
+    text-shadow: 0 0 6px rgba(255, 255, 255, 0.7);
+    animation: riseAndFade 1s ease-out forwards;
+    pointer-events: none;
+  }
+}
+
+@keyframes riseAndFade {
+  0% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-60px) scale(1.3);
   }
 }

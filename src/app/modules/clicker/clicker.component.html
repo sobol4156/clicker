@@ -1,4 +1,22 @@
 <div class="clicker">
-  <h3>My coins {{myCoins}}</h3>
-  <img class="clicker__main-item" src="assets/svg/coin.svg" alt="" [width]="300" [height]="300" (click)="increment()">
+  <h3>My coins {{ myCoins }}</h3>
+
+  <div class="clicker__wrapper" (click)="increment($event)">
+    <img
+      class="clicker__main-item"
+      src="assets/svg/coin.svg"
+      alt="coin"
+      width="300"
+      height="300"
+      draggable="false"
+    />
+
+    <div
+      *ngFor="let popup of popups"
+      class="clicker__popup"
+      [ngStyle]="{ left: popup.x + 'px', top: popup.y + 'px' }"
+    >
+      +{{ popup.value }}
+    </div>
+  </div>
 </div>
