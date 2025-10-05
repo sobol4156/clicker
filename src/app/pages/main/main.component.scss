@@ -1,0 +1,9 @@
+.main-page {
+  min-height: 100vh;
+  height: 100%;
+  box-sizing: border-box;
+
+  display: flex;
+  justify-content: center; /* по горизонтали */
+  align-items: center;     /* по вертикали */
+}

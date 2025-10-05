@@ -1,0 +1,20 @@
+.clicker {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100%;
+
+  &__main-item {
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+    &:hover {
+      transform: scale(1.05);
+    }
+
+    &:active {
+      transform: scale(0.92);
+    }
+  }
+}
