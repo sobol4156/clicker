@@ -1,19 +1,19 @@
 .aside-upgrade {
   position: fixed;
-  left: 20px;
   top: 20px;
-
+  left: 0;
+  width: 100vw;
   display: flex;
-  justify-content: center;
   flex-direction: column;
   gap: 10px;
-  margin: 10px 0;
+  max-width: 460px;
 
   app-button {
     display: flex;
     justify-content: space-between;
     align-items: center;
     flex-shrink: 0;
+    user-select: none;
 
     .price {
       font-size: 12px;
@@ -27,4 +27,11 @@
       font-weight: bold;
     }
   }
+}
+
+.btn-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
 }

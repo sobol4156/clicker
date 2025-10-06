@@ -1,3 +1,5 @@
+@import '/src/assets/css/breakpoints';
+
 button {
   font-size: 30px;
   padding: 10px 16px;
@@ -6,8 +8,16 @@ button {
   cursor: pointer;
   image-rendering: pixelated;
   text-transform: uppercase;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
   box-shadow: 0 4px 0 #000;
+  width: 100%;
   transition: all 0.1s steps(2);
+
+  @include mobile {
+    padding: 8px 10px;
+    font-size: 18px;
+  }
 
   &:active {
     transform: translateY(3px);
