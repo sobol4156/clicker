@@ -11,6 +11,11 @@
   />
   <div class="store__modal" [class.open]="isOpenStore">
     <div class="store__header">
+      <div class="store__balance">
+        <span>Balance:</span>
+        <strong>{{ clicker.myCoins$ | async | number : "1.0-2" }}</strong>
+        <img src="assets/svg/coin.svg" alt="coin" [width]="32" [height]="32" />
+      </div>
       <img
         class="store__icon-close"
         src="assets/svg/cross.svg"

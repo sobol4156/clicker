@@ -54,7 +54,7 @@
 
     backdrop-filter: blur(5px);
     -webkit-backdrop-filter: blur(5px);
-pointer-events: none;
+    pointer-events: none;
     opacity: 0;
     transition: opacity 0.2s ease-in-out;
   }
@@ -76,6 +76,18 @@ pointer-events: none;
     width: 100%;
     display: flex;
     justify-content: end;
+
+    .store__balance {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+
+      font-size: 32px;
+
+      strong {
+        margin: 0 5px;
+      }
+    }
   }
   &__content {
     display: flex;
