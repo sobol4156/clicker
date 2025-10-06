@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, interval } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +13,20 @@ export class ClickerService {
   coinBonus$ = this._coinBonus;
   priceStrongClick$ = this._priceStrongClick.asObservable();
 
-  constructor() { }
+  constructor() {
+    interval(5000).subscribe(() => {
+      localStorage.setItem('myCoins', this._myCoins.value.toString());
+      localStorage.setItem('coinBonus', this._coinBonus.value.toString());
+      localStorage.setItem('priceStrongClick', this._priceStrongClick.value.toString())
+    })
+
+    const savedCoins = localStorage.getItem('myCoins')
+    if (savedCoins) this._myCoins.next(+savedCoins);
+    const savedCoinBonus = localStorage.getItem('coinBonus')
+    if (savedCoinBonus) this._coinBonus.next(+savedCoinBonus);
+    const savedPriceStrongClick = localStorage.getItem('priceStrongClick')
+    if (savedPriceStrongClick) this._priceStrongClick.next(+savedPriceStrongClick);
+  }
 
   increment() {
     this._myCoins.next(this._myCoins.value + this._coinBonus.value);
