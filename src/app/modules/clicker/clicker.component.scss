@@ -1,4 +1,4 @@
-@import '/src/assets/css/breakpoints';
+@import "/src/assets/css/breakpoints";
 
 :host {
   display: flex;
@@ -33,8 +33,19 @@
   &__main-item {
     transition: transform 0.2s ease;
     user-select: none;
-    touch-action: manipulation;
+    -webkit-user-drag: none;
     -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
+    touch-action: manipulation;
+    outline: none;
+    border: none;
+    cursor: pointer;
+
+    img {
+      pointer-events: none;
+      user-select: none;
+      -webkit-user-drag: none;
+    }
 
     &:active {
       transform: scale(0.95);
