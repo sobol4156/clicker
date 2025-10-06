@@ -14,4 +14,7 @@ export class AsideUpgradeComponent {
   buyStrongClick() {
     this.clicker.buyStrongClick()
   }
+  buyAutoClick(){
+   this.clicker.buyAutoClick()
+  }
 }
