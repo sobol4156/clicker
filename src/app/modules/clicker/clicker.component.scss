@@ -12,7 +12,7 @@
   position: relative;
   text-align: center;
   margin-bottom: 80px;
-  
+
   h3 {
     font-size: 48px;
 
@@ -25,6 +25,9 @@
     position: relative;
     display: inline-block;
     cursor: pointer;
+    outline: none;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
 
     &-main-item {
       padding: 30px;
@@ -47,10 +50,6 @@
       user-select: none;
       -webkit-user-drag: none;
     }
-
-    &:active {
-      transform: scale(0.95);
-    }
   }
 
   &__popup {
@@ -68,6 +67,10 @@
       font-size: 24px;
     }
   }
+}
+
+.clicker__main-item.active {
+  transform: scale(0.95);
 }
 
 @keyframes riseAndFade {

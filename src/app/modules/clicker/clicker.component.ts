@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 import { Subject, throttleTime, timer } from 'rxjs';
 import { ClickerService } from 'src/app/core/clicker.service';
 
@@ -27,6 +27,7 @@ export class ClickerComponent {
   }
 
   increment(event: MouseEvent) {
+    (event.target as HTMLElement).blur();
     this.click$.next(event);
   }
 
@@ -36,7 +37,6 @@ export class ClickerComponent {
     const target = (event.currentTarget as HTMLElement).getBoundingClientRect();
     const x = event.clientX - target.left - 10;
     const y = event.clientY - target.top - 20;
-
 
     const newPopup: Popup = {
       id: Date.now(),
@@ -49,7 +49,27 @@ export class ClickerComponent {
     timer(1000).subscribe(() => {
       this.popups = this.popups.filter(p => p.id !== newPopup.id);
     });
+  }
 
+  @ViewChild('clickItem', { static: true }) clickItem!: ElementRef<HTMLButtonElement>;
 
+  ngAfterViewInit() {
+    const clickItem = this.clickItem.nativeElement;
+
+    const addActive = () => clickItem.classList.add('active');
+    const removeActive = () => clickItem.classList.remove('active');
+
+    clickItem.addEventListener('touchstart', addActive);
+    clickItem.addEventListener('touchend', () => {
+      removeActive();
+    });
+
+    clickItem.addEventListener('mousedown', addActive);
+    clickItem.addEventListener('mouseup', () => {
+      setTimeout(() => removeActive(), 100);
+      removeActive();
+    });
+
+    clickItem.addEventListener('mouseleave', removeActive);
   }
 }
