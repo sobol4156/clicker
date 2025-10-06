@@ -1,5 +1,9 @@
 # Clicker
 
+<img width="1138" height="938" alt="image" src="https://github.com/user-attachments/assets/d40ac105-67bd-491b-a0d7-2cbbb61f3637" />
+
+
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.16.
 
 ## Development server
