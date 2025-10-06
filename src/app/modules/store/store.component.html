@@ -1,6 +1,6 @@
 <div class="store">
   <img
-    *ngIf="!isOpenStore"
+    [class.hidden]="isOpenStore"
     class="store__icon"
     src="assets/svg/basket.svg"
     alt="settings"
@@ -9,7 +9,7 @@
     draggable="false"
     (click)="toggleStore()"
   />
-  <div *ngIf="isOpenStore" class="store__modal">
+  <div class="store__modal" [class.open]="isOpenStore">
     <div class="store__header">
       <img
         class="store__icon-close"
