@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { timer } from 'rxjs';
+import { Subject, throttleTime, timer } from 'rxjs';
 import { ClickerService } from 'src/app/core/clicker.service';
 
 interface Popup {
@@ -17,11 +17,20 @@ interface Popup {
 export class ClickerComponent {
   popups: Popup[] = [];
 
+  private click$ = new Subject<MouseEvent>();
+
   constructor(public clicker: ClickerService) {
 
+    this.click$
+      .pipe(throttleTime(50))
+      .subscribe((event) => this.handleIncrement(event))
   }
 
   increment(event: MouseEvent) {
+    this.click$.next(event);
+  }
+
+  private handleIncrement(event: MouseEvent) {
     this.clicker.increment()
 
     const target = (event.currentTarget as HTMLElement).getBoundingClientRect();
