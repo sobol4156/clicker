@@ -10,7 +10,7 @@ export class ClickerService {
   private _priceStrongClick = new BehaviorSubject<number>(12);
 
   myCoins$ = this._myCoins.asObservable();
-  coinBonus$ = this._coinBonus.asObservable();
+  coinBonus$ = this._coinBonus;
   priceStrongClick$ = this._priceStrongClick.asObservable();
 
   constructor() { }

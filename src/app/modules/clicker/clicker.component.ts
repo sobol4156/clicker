@@ -28,19 +28,19 @@ export class ClickerComponent {
     const x = event.clientX - target.left - 10;
     const y = event.clientY - target.top - 20;
 
-    this.clicker.coinBonus$.subscribe(val => {
-      const newPopup: Popup = {
-        id: Date.now(),
-        value: val,
-        x,
-        y
-      }
-      this.popups.push(newPopup);
 
-      timer(1000).subscribe(() => {
-        this.popups = this.popups.filter(p => p.id !== newPopup.id);
-      });
+    const newPopup: Popup = {
+      id: Date.now(),
+      value: this.clicker.coinBonus$.getValue(),
+      x,
+      y
+    }
+    this.popups.push(newPopup);
+
+    timer(1000).subscribe(() => {
+      this.popups = this.popups.filter(p => p.id !== newPopup.id);
     });
+
 
   }
 }
