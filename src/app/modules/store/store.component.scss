@@ -54,13 +54,14 @@
 
     backdrop-filter: blur(5px);
     -webkit-backdrop-filter: blur(5px);
-
+pointer-events: none;
     opacity: 0;
     transition: opacity 0.2s ease-in-out;
   }
 
   &__modal.open {
     opacity: 1;
+    pointer-events: auto;
   }
 
   &__icon-close {
