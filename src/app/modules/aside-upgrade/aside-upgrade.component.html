@@ -1,12 +1,12 @@
 <div class="aside-upgrade">
-  <app-button (click)="buyStrongClick()">
+  <app-button (btnClick)="buyStrongClick()">
     <span class="btn-content">
       Strong click + {{ 1 }}
       <span class="price">{{ clicker.priceStrongClick$ | async }} coins</span>
     </span>
   </app-button>
 
-  <app-button (click)="buyAutoClick()">
+  <app-button (btnClick)="buyAutoClick()">
     <span class="btn-content">
       Auto click + {{ 1 }}
       <span class="price">{{ clicker.priceAutoClick$ | async }} coins</span>

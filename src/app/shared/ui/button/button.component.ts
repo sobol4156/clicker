@@ -7,16 +7,33 @@ import { Component, ElementRef, EventEmitter, Input, Output, ViewChild, AfterVie
 })
 export class ButtonComponent implements AfterViewInit {
   @Input() type: 'default' = 'default';
-  @Output() click = new EventEmitter<Event>();
+  @Output() btnClick = new EventEmitter<Event>();
 
   @ViewChild('button', { static: true }) btn!: ElementRef<HTMLButtonElement>;
 
   ngAfterViewInit() {
     const button = this.btn.nativeElement;
 
-    button.addEventListener('click', (event) => this.click.emit(event));
+    const addActive = () => button.classList.add('active');
+    const removeActive = () => button.classList.remove('active');
 
-    button.addEventListener('touchstart', () => button.classList.add('active'));
-    button.addEventListener('touchend', () => button.classList.remove('active'));
+    const handleClick = (event: Event) => {
+      removeActive();
+      this.btnClick.emit(event);
+    };
+
+    button.addEventListener('touchstart', addActive);
+    button.addEventListener('touchend', () => {
+      removeActive();
+      this.btnClick.emit(new Event('click'));
+    });
+
+    button.addEventListener('mousedown', addActive);
+    button.addEventListener('mouseup', (event) => {
+      setTimeout(() => removeActive(), 100);
+      handleClick(event);
+    });
+
+    button.addEventListener('mouseleave', removeActive);
   }
 }
