@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { MainComponent } from './main.component';
 import { ClickerModule } from 'src/app/modules/clicker/clicker.module';
 import { MainRoutingModule } from './main-routing.module';
+import { AsideUpgradeModule } from 'src/app/modules/aside-upgrade/aside-upgrade.module';
 
 @NgModule({
   declarations: [
@@ -10,7 +11,8 @@ import { MainRoutingModule } from './main-routing.module';
   ],
   imports: [
     MainRoutingModule,
-    CommonModule, ClickerModule
+    CommonModule, ClickerModule,
+    AsideUpgradeModule
   ],
 })
 export class MainModule { }

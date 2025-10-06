@@ -10,10 +10,18 @@
   position: relative;
   text-align: center;
 
+  h3 {
+    font-size: 48px;
+  }
+
   &__wrapper {
     position: relative;
     display: inline-block;
     cursor: pointer;
+
+    &-main-item {
+      padding: 30px;
+    }
   }
 
   &__main-item {

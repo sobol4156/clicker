@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { timer } from 'rxjs';
+import { ClickerService } from 'src/app/core/clicker.service';
 
 interface Popup {
   id: number;
@@ -14,30 +15,32 @@ interface Popup {
   styleUrls: ['./clicker.component.scss']
 })
 export class ClickerComponent {
-  myCoins = 0
-  coinBonus = 1
   popups: Popup[] = [];
 
+  constructor(public clicker: ClickerService) {
+
+  }
+
   increment(event: MouseEvent) {
-    this.myCoins += this.coinBonus
+    this.clicker.increment()
 
     const target = (event.currentTarget as HTMLElement).getBoundingClientRect();
     const x = event.clientX - target.left - 10;
     const y = event.clientY - target.top - 20;
 
-    const newPopup: Popup = {
-      id: Date.now(),
-      value: 1,
-      x,
-      y
-    }
+    this.clicker.coinBonus$.subscribe(val => {
+      const newPopup: Popup = {
+        id: Date.now(),
+        value: val,
+        x,
+        y
+      }
+      this.popups.push(newPopup);
 
-    this.popups.push(newPopup)
+      timer(1000).subscribe(() => {
+        this.popups = this.popups.filter(p => p.id !== newPopup.id);
+      });
+    });
 
-    timer(1000).subscribe(() => {
-      this.popups = this.popups.filter(p => p.id !== newPopup.id)
-    })
   }
-
-  
 }
