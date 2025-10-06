@@ -1,12 +1,15 @@
-.aside-upgrade {
+.store{
   position: fixed;
+  right: 20px;
   top: 20px;
-  left: 0;
-  width: 100vw;
   display: flex;
   flex-direction: column;
   gap: 10px;
-  max-width: 460px;
+
+  &__icon {
+    cursor: pointer;
+    user-select: none;
+  }
 
   app-button {
     display: flex;
@@ -17,7 +20,7 @@
     
 
     .price {
-      font-size: 12px;
+      font-size: 16px;
       margin-left: 6px;
       color: #000;
       background: #fff8a0;

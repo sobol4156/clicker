@@ -13,7 +13,7 @@ export class ClickerService {
 
   myCoins$ = this._myCoins.asObservable();
   coinBonus$ = this._coinBonus;
-  autoBonus$ = this._autoBonus.asObservable();
+  autoBonus$ = this._autoBonus;
   priceStrongClick$ = this._priceStrongClick.asObservable();
   priceAutoClick$ = this._priceAutoClick;
 

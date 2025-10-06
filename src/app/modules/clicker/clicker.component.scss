@@ -11,7 +11,8 @@
 .clicker {
   position: relative;
   text-align: center;
-
+  margin-bottom: 80px;
+  
   h3 {
     font-size: 48px;
 
@@ -60,6 +61,12 @@
     text-shadow: 0 0 6px rgba(255, 255, 255, 0.7);
     animation: riseAndFade 1s ease-out forwards;
     pointer-events: none;
+  }
+
+  &__auto-click {
+    span {
+      font-size: 24px;
+    }
   }
 }
 

@@ -1,5 +1,14 @@
-<div class="aside-upgrade">
-  <app-button (btnClick)="buyStrongClick()">
+<div class="store">
+  <img
+    class="store__icon"
+    src="assets/svg/basket.svg"
+    alt="settings"
+    [width]="50"
+    [height]="50"
+    draggable="false"
+    (click)="(openStore)"
+  />
+  <!-- <app-button (btnClick)="buyStrongClick()">
     <span class="btn-content">
       Strong click + {{ 1 }}
       <span class="price">{{ clicker.priceStrongClick$ | async }} coins</span>
@@ -11,5 +20,5 @@
       Auto click + {{ 1 }}
       <span class="price">{{ clicker.priceAutoClick$ | async }} coins</span>
     </span>
-  </app-button>
+  </app-button> -->
 </div>

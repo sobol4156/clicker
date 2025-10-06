@@ -2,11 +2,11 @@ import { Component } from '@angular/core';
 import { ClickerService } from 'src/app/core/clicker.service';
 
 @Component({
-  selector: 'app-aside-upgrade',
-  templateUrl: './aside-upgrade.component.html',
-  styleUrls: ['./aside-upgrade.component.scss']
+  selector: 'app-store',
+  templateUrl: './store.component.html',
+  styleUrls: ['./store.component.scss']
 })
-export class AsideUpgradeComponent {
+export class StoreComponent {
   constructor(public clicker: ClickerService) {
 
   }
@@ -16,5 +16,9 @@ export class AsideUpgradeComponent {
   }
   buyAutoClick(){
    this.clicker.buyAutoClick()
+  }
+
+  openStore(){
+    
   }
 }

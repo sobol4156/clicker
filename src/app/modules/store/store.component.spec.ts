@@ -1,16 +1,16 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { AsideUpgradeComponent } from './aside-upgrade.component';
+import {StoreComponent } from './store.component';
 
 describe('AsideUpgradeComponent', () => {
-  let component: AsideUpgradeComponent;
-  let fixture: ComponentFixture<AsideUpgradeComponent>;
+  let component: StoreComponent;
+  let fixture: ComponentFixture<StoreComponent>;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [AsideUpgradeComponent]
+      declarations: [StoreComponent]
     });
-    fixture = TestBed.createComponent(AsideUpgradeComponent);
+    fixture = TestBed.createComponent(StoreComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

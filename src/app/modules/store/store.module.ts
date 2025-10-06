@@ -1,17 +1,17 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { AsideUpgradeComponent } from './aside-upgrade.component';
+import { StoreComponent } from './store.component';
 import { ButtonModule } from 'src/app/shared/ui/button/button.module';
 
 @NgModule({
   declarations: [
-    AsideUpgradeComponent
+    StoreComponent
   ],
   imports: [
     CommonModule, ButtonModule
   ],
   exports: [
-    AsideUpgradeComponent
+    StoreComponent
   ]
 })
-export class AsideUpgradeModule { }
+export class StoreModule { }
