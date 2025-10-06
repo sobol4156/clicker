@@ -15,8 +15,6 @@
         class="store__icon-close"
         src="assets/svg/cross.svg"
         alt="settings"
-        [width]="90"
-        [height]="90"
         draggable="false"
         (click)="toggleStore()"
       />
@@ -39,6 +37,19 @@
             {{ clicker.priceAutoClick$ | async }}
             <img src="assets/svg/coin.svg" alt="" [width]="12" [height]="12" />
           </div>
+        </span>
+      </app-button>
+
+      <app-button
+        [type]="'danger'"
+        class="progress-reset"
+        (btnClick)="resetProgress()"
+      >
+        <span class="btn-content" style="justify-content: center">
+          <span>
+            <strong>Reset</strong> {{ clicker.resetGamePrice$ | async }}
+          </span>
+          <img src="assets/svg/coin.svg" alt="" />
         </span>
       </app-button>
     </div>

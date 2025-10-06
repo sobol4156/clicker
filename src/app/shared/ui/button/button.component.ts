@@ -6,7 +6,7 @@ import { Component, ElementRef, EventEmitter, Input, Output, ViewChild, AfterVie
   styleUrls: ['./button.component.scss']
 })
 export class ButtonComponent implements AfterViewInit {
-  @Input() type: 'default' = 'default';
+  @Input() type: 'default' | 'danger' = 'default';
   @Output() btnClick = new EventEmitter<Event>();
 
   @ViewChild('button', { static: true }) btn!: ElementRef<HTMLButtonElement>;

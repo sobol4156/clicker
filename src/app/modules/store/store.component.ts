@@ -20,6 +20,10 @@ export class StoreComponent {
     this.clicker.buyAutoClick()
   }
 
+  resetProgress() {
+    this.clicker.resetProgress()
+  }
+
   toggleStore() {
     this.isOpenStore = !this.isOpenStore
   }

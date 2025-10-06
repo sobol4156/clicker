@@ -27,7 +27,6 @@ export class ClickerComponent {
   }
 
   increment(event: MouseEvent) {
-    (event.target as HTMLElement).blur();
     this.click$.next(event);
   }
 
@@ -38,9 +37,11 @@ export class ClickerComponent {
     const x = event.clientX - target.left - 10;
     const y = event.clientY - target.top - 20;
 
+    const coinBonus = parseFloat((this.clicker.coinBonus$.value * this.clicker.ratioGame$.value).toFixed(2))
+
     const newPopup: Popup = {
       id: Date.now(),
-      value: this.clicker.coinBonus$.getValue(),
+      value: coinBonus,
       x,
       y
     }
