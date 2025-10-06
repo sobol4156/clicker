@@ -1,24 +1,46 @@
 <div class="store">
   <img
+    *ngIf="!isOpenStore"
     class="store__icon"
     src="assets/svg/basket.svg"
     alt="settings"
     [width]="50"
     [height]="50"
     draggable="false"
-    (click)="(openStore)"
+    (click)="toggleStore()"
   />
-  <!-- <app-button (btnClick)="buyStrongClick()">
-    <span class="btn-content">
-      Strong click + {{ 1 }}
-      <span class="price">{{ clicker.priceStrongClick$ | async }} coins</span>
-    </span>
-  </app-button>
+  <div *ngIf="isOpenStore" class="store__modal">
+    <div class="store__header">
+      <img
+        class="store__icon-close"
+        src="assets/svg/cross.svg"
+        alt="settings"
+        [width]="90"
+        [height]="90"
+        draggable="false"
+        (click)="toggleStore()"
+      />
+    </div>
+    <div class="store__content">
+      <app-button (btnClick)="buyStrongClick()">
+        <span class="btn-content">
+          Strong click + {{ 1 }}
+          <div class="price">
+            {{ clicker.priceStrongClick$ | async }}
+            <img src="assets/svg/coin.svg" alt="" [width]="12" [height]="12" />
+          </div>
+        </span>
+      </app-button>
 
-  <app-button (btnClick)="buyAutoClick()">
-    <span class="btn-content">
-      Auto click + {{ 1 }}
-      <span class="price">{{ clicker.priceAutoClick$ | async }} coins</span>
-    </span>
-  </app-button> -->
+      <app-button (btnClick)="buyAutoClick()">
+        <span class="btn-content">
+          Auto click + {{ 1 }}
+          <div class="price">
+            {{ clicker.priceAutoClick$ | async }}
+            <img src="assets/svg/coin.svg" alt="" [width]="12" [height]="12" />
+          </div>
+        </span>
+      </app-button>
+    </div>
+  </div>
 </div>

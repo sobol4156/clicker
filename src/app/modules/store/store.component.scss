@@ -1,12 +1,12 @@
-.store{
-  position: fixed;
-  right: 20px;
-  top: 20px;
+.store {
   display: flex;
   flex-direction: column;
   gap: 10px;
 
   &__icon {
+    position: fixed;
+    right: 20px;
+    top: 20px;
     cursor: pointer;
     user-select: none;
   }
@@ -17,9 +17,12 @@
     align-items: center;
     flex-shrink: 0;
     user-select: none;
-    
 
     .price {
+      font-family: 'Roboto';
+      display: flex;
+      align-items: center;
+      gap: 4px;
       font-size: 16px;
       margin-left: 6px;
       color: #000;
@@ -30,6 +33,35 @@
       text-transform: uppercase;
       font-weight: bold;
     }
+  }
+
+  &__modal {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    z-index: 100;
+    top: 0;
+    left: 0;
+  }
+
+  &__icon-close {
+    right: 0;
+    position: relative;
+    cursor: pointer;
+  }
+
+  &__header {
+    width: 100%;
+    display: flex;
+    justify-content: end;
+  }
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
   }
 }
 

@@ -7,6 +7,8 @@ import { ClickerService } from 'src/app/core/clicker.service';
   styleUrls: ['./store.component.scss']
 })
 export class StoreComponent {
+  isOpenStore = false;
+
   constructor(public clicker: ClickerService) {
 
   }
@@ -14,11 +16,11 @@ export class StoreComponent {
   buyStrongClick() {
     this.clicker.buyStrongClick()
   }
-  buyAutoClick(){
-   this.clicker.buyAutoClick()
+  buyAutoClick() {
+    this.clicker.buyAutoClick()
   }
 
-  openStore(){
-    
+  toggleStore() {
+    this.isOpenStore = !this.isOpenStore
   }
 }
