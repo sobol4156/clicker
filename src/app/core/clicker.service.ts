@@ -67,7 +67,7 @@ export class ClickerService {
   }
 
   buyAutoClick() {
-    if (this._myCoins.value >= this._priceStrongClick.value) {
+    if (this._myCoins.value >= this._priceAutoClick.value) {
       this._myCoins.next(this._myCoins.value - this._priceAutoClick.value)
       this._autoBonus.next(this._autoBonus.value + 1);
       this._priceAutoClick.next(Math.floor(this._priceAutoClick.value * 1.1));
