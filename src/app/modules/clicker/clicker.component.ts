@@ -20,7 +20,6 @@ export class ClickerComponent {
   private click$ = new Subject<MouseEvent>();
 
   constructor(public clicker: ClickerService) {
-
     this.click$
       .pipe(throttleTime(50))
       .subscribe((event) => this.handleIncrement(event))

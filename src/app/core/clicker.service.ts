@@ -25,10 +25,12 @@ export class ClickerService {
     this.startAutoSave()
     this.initSaveData()
 
-    interval(2000).subscribe(() => {
-      const autoIncome = this._autoBonus.value * this._ratioGame.value;
-      this._myCoins.next((parseFloat((this._myCoins.value + autoIncome).toFixed(2))))
-    })
+    interval(2000).subscribe(this.autoClick)
+  }
+
+  autoClick() {
+    const autoIncome = this._autoBonus.value * this._ratioGame.value;
+    this._myCoins.next((parseFloat((this._myCoins.value + autoIncome).toFixed(2))))
   }
 
   private initSaveData() {
@@ -45,9 +47,7 @@ export class ClickerService {
   }
 
   private startAutoSave() {
-    interval(5000).subscribe(() => {
-      this.saveProgress()
-    });
+    interval(5000).subscribe(this.saveProgress)
   }
 
   saveProgress() {
