@@ -25,7 +25,7 @@ export class ClickerService {
     this.startAutoSave()
     this.initSaveData()
 
-    interval(2000).subscribe(this.autoClick)
+    interval(2000).subscribe(() => this.autoClick())
   }
 
   autoClick() {
@@ -47,7 +47,7 @@ export class ClickerService {
   }
 
   private startAutoSave() {
-    interval(5000).subscribe(this.saveProgress)
+    interval(5000).subscribe(() => this.saveProgress())
   }
 
   saveProgress() {
