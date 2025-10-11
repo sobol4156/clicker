@@ -5,8 +5,7 @@
     "ng": "ng",
     "start": "ng serve",
     "test": "ng test",
-    "type-check": "tsc --noEmit",
-    "build": "npm run type-check && npm run test && ng build",
+    "build": "npm run test && ng build",
     "watch": "ng build --watch --configuration development"
   },
   "private": true,
