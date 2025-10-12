@@ -23,10 +23,9 @@ export class LoginComponent {
   }
 
   onSubmit() {
+    this.backendError = null;
     this.submitted = true;
     if (this.loginForm.invalid) return;
-
-    this.backendError = null;
 
     this.apiService.loginUser(this.loginForm.value)
       .subscribe({

@@ -7,7 +7,7 @@
     [class.invalid]="submitted && formControl.invalid"
   />
 </label>
-<div class="error" *ngIf="submitted && formControl.invalid">
+<div class="form-error" *ngIf="submitted && formControl.invalid">
   <small *ngIf="formControl.errors?.['required']">{{ label }} обязателен</small>
   <small *ngIf="formControl.errors?.['minlength']">
     Минимум {{ formControl.errors?.["minlength"].requiredLength }} символов

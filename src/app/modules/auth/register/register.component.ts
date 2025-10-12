@@ -15,16 +15,15 @@ export class RegisterComponent {
 
   constructor() {
     this.registerForm = this.fb.group({
-      username: ['qwe', [Validators.required, Validators.minLength(3)]],
+      username: ['', [Validators.required, Validators.minLength(3)]],
       password: ['', [Validators.required, Validators.minLength(6)]]
     });
   }
 
   onSubmit() {
+    this.backendError = null;
     this.submitted = true;
     if (this.registerForm.invalid) return;
-
-    this.backendError = null;
 
     this.apiService.registerUser(this.registerForm.value)
       .subscribe({

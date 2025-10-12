@@ -1,7 +1,6 @@
 .form-group {
   display: flex;
   flex-direction: column;
-  margin-bottom: 15px;
 
   label {
     margin-bottom: 6px;
@@ -24,10 +23,10 @@
       border-color: #e74c3c;
     }
   }
+}
 
-  .error {
-    color: #e74c3c;
-    font-size: 12px;
-    margin-top: 4px;
-  }
+.form-error {
+  color: #e74c3c;
+  font-size: 12px;
+  margin-top: 4px;
 }
