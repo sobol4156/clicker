@@ -1,1 +1,27 @@
-<p>login works!</p>
+<div class="login">
+  <h2 class="login__title">Регистрация</h2>
+
+  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+    <app-form-input
+      [label]="'Имя'"
+      [control]="loginForm.controls['username']"
+      [placeholder]="'Введите имя'"
+      [submitted]="submitted"
+    ></app-form-input>
+
+    <app-form-input
+      [label]="'Пароль'"
+      [control]="loginForm.controls['password']"
+      [type]="'password'"
+      [placeholder]="'Введите пароль'"
+      [submitted]="submitted"
+    ></app-form-input>
+
+    <!-- Ошибка с бэка -->
+    <div class="error backend-error" *ngIf="backendError">
+      {{ backendError }}
+    </div>
+
+    <app-button type="default">Войти</app-button>
+  </form>
+</div>

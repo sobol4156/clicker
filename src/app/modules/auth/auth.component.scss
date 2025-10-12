@@ -67,3 +67,23 @@
     }
   }
 }
+
+
+.handle-form {
+  margin-top: 1rem;
+  text-align: center;
+
+  span {
+    margin-right: 0.5rem;
+    color: #ffffff;
+  }
+
+  a {
+    color: #007bff;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}

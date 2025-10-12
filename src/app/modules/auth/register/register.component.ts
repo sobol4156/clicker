@@ -10,6 +10,7 @@ import { ApiService } from 'src/app/core/api/api.service';
 export class RegisterComponent {
   registerForm: FormGroup;
   submitted = false;
+  backendError: string | null = null;
 
   constructor(private fb: FormBuilder, private apiService: ApiService) {
     this.registerForm = this.fb.group({
@@ -18,19 +19,19 @@ export class RegisterComponent {
     });
   }
 
-  get f() {
-    return this.registerForm.controls;
-  }
-
   onSubmit() {
     this.submitted = true;
     if (this.registerForm.invalid) return;
 
-    console.log('Регистрация:', this.registerForm.value);
+    this.backendError = null;
+
     this.apiService.registerUser(this.registerForm.value)
       .subscribe({
         next: res => console.log('Успешная регистрация', res),
-        error: err => console.error('Ошибка при регистрации', err)
+        error: err => {
+          console.log(err)
+          this.backendError = err.error.message
+        }
       });
   }
 }

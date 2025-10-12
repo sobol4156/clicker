@@ -7,8 +7,13 @@ import { Component } from '@angular/core';
 })
 export class AuthComponent {
   isOpenAuth = false;
+  isRegister = true;
 
   toggleAuth() {
     this.isOpenAuth = !this.isOpenAuth
+  }
+  
+  handleForm(){
+    this.isRegister = !this.isRegister
   }
 }

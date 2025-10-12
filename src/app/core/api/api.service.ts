@@ -21,6 +21,9 @@ export class ApiService {
   }
 
   registerUser(body: { username: string; password: string }): Observable<any> {
-   return this.http.post(`${this.baseUrl}/auth/register`, body, { headers: this.getHeaders() })
+    return this.http.post(`${this.baseUrl}/auth/register`, body, { headers: this.getHeaders() })
+  }
+  loginUser(body: { username: string; password: string }): Observable<any> {
+    return this.http.post(`${this.baseUrl}/auth/login`, body, { headers: this.getHeaders() })
   }
 }

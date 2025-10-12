@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ApiService } from 'src/app/core/api/api.service';
 
 @Component({
   selector: 'app-login',
@@ -6,5 +8,30 @@ import { Component } from '@angular/core';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent {
+  loginForm: FormGroup;
+  submitted = false;
+  backendError: string | null = null;
 
+  constructor(private fb: FormBuilder, private apiService: ApiService) {
+    this.loginForm = this.fb.group({
+      username: ['qwe', [Validators.required, Validators.minLength(3)]],
+      password: ['', [Validators.required, Validators.minLength(6)]]
+    });
+  }
+
+  onSubmit() {
+    this.submitted = true;
+    if (this.loginForm.invalid) return;
+
+    this.backendError = null;
+
+    this.apiService.loginUser(this.loginForm.value)
+      .subscribe({
+        next: res => console.log('Успешная авторизация', res),
+        error: err => {
+          console.log(err)
+          this.backendError = err.error.message
+        }
+      });
+  }
 }

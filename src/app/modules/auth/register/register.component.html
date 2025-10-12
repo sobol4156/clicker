@@ -17,6 +17,11 @@
       [submitted]="submitted"
     ></app-form-input>
 
+    <!-- Ошибка с бэка -->
+    <div class="error backend-error" *ngIf="backendError">
+      {{ backendError }}
+    </div>
+
     <app-button type="default">Зарегистрироваться</app-button>
   </form>
 </div>

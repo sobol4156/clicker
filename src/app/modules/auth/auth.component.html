@@ -20,7 +20,18 @@
     </div>
 
     <div class="auth__main">
-      <app-register />
+      <app-register *ngIf="isRegister; else isLogin"></app-register>
+
+      <ng-template #isLogin>
+        <app-login></app-login>
+      </ng-template>
+
+      <div class="handle-form">
+        <span>{{ isRegister ? "Уже есть аккаунт?" : "Нет аккаунта?" }}</span>
+        <a (click)="handleForm()">
+          {{ isRegister ? "Войти" : "Зарегистрироваться" }}
+        </a>
+      </div>
     </div>
   </div>
 </div>
