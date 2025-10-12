@@ -1,0 +1,26 @@
+<div class="auth">
+  <img
+    class="auth__icon"
+    src="assets/svg/sign-in.svg"
+    alt=""
+    [width]="50"
+    [height]="50"
+    (click)="toggleAuth()"
+  />
+
+  <div class="auth__modal" [class.open]="isOpenAuth">
+    <div class="auth__header">
+      <img
+        class="auth__icon-close"
+        src="assets/svg/cross.svg"
+        alt="settings"
+        draggable="false"
+        (click)="toggleAuth()"
+      />
+    </div>
+
+    <div class="auth__main">
+      <app-register />
+    </div>
+  </div>
+</div>

@@ -1,0 +1,69 @@
+@import "/src/assets/css/variables";
+
+.auth {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  &__icon {
+    position: fixed;
+    left: 20px;
+    top: 20px;
+    cursor: pointer;
+    user-select: none;
+    transform: rotate(180deg);
+
+    opacity: 1;
+    transition: opacity 0.2s ease-in-out;
+  }
+
+  &__icon.hidden {
+    opacity: 0;
+  }
+
+  &__modal {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    z-index: 100;
+
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.2s ease-in-out;
+  }
+
+  &__modal.open {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  &__icon-close {
+    right: 0;
+    position: relative;
+    cursor: pointer;
+    width: $store-header;
+    height: $store-header;
+  }
+
+  &__header {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+
+    .store__balance {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+
+      font-size: 32px;
+
+      strong {
+        margin: 0 5px;
+      }
+    }
+  }
+}

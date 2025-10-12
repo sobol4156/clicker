@@ -4,6 +4,7 @@ import { MainComponent } from './main.component';
 import { ClickerModule } from 'src/app/modules/clicker/clicker.module';
 import { MainRoutingModule } from './main-routing.module';
 import { StoreModule } from 'src/app/modules/store/store.module';
+import { AuthModule } from 'src/app/modules/auth/auth.module';
 
 @NgModule({
   declarations: [
@@ -12,7 +13,7 @@ import { StoreModule } from 'src/app/modules/store/store.module';
   imports: [
     MainRoutingModule,
     CommonModule, ClickerModule,
-    StoreModule
+    StoreModule, AuthModule
   ],
 })
 export class MainModule { }

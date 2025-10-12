@@ -1,0 +1,33 @@
+.form-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 15px;
+
+  label {
+    margin-bottom: 6px;
+    font-weight: 600;
+  }
+
+  input {
+    padding: 8px 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 14px;
+    transition: border 0.3s;
+
+    &:focus {
+      border-color: #007bff;
+      outline: none;
+    }
+
+    &.invalid {
+      border-color: #e74c3c;
+    }
+  }
+
+  .error {
+    color: #e74c3c;
+    font-size: 12px;
+    margin-top: 4px;
+  }
+}

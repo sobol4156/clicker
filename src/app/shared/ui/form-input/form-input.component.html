@@ -1,0 +1,17 @@
+<div class="form-group">
+  <label *ngIf="label">{{ label }}</label>
+  <input
+    [type]="type"
+    [placeholder]="placeholder"
+    [formControl]="control"
+    [class.invalid]="submitted && control.invalid"
+  />
+  
+  <div class="error" *ngIf="submitted && control.invalid">
+    <small *ngIf="control.errors?.['required']">{{ label }} обязателен</small>
+    <small *ngIf="control.errors?.['minlength']">
+      Минимум {{ control.errors?.['minlength'].requiredLength }} символов
+    </small>
+    <small *ngIf="control.errors?.['email']">Некорректный email</small>
+  </div>
+</div>
