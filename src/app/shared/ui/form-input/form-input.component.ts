@@ -10,8 +10,8 @@ export class FormInputComponent {
   @Input() control!: AbstractControl;
   @Input() label = '';
   @Input() placeholder = '';
-  @Input() type: string = 'text';
-  @Input() submitted: boolean = false;
+  @Input() type= 'text';
+  @Input() submitted = false;
 
   get formControl(): FormControl {
     return this.control as FormControl;

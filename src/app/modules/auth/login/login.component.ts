@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ApiService } from 'src/app/core/api/api.service';
 
@@ -8,13 +8,16 @@ import { ApiService } from 'src/app/core/api/api.service';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent {
+  private fb = inject(FormBuilder);
+  private apiService = inject(ApiService);
+
   loginForm: FormGroup;
   submitted = false;
   backendError: string | null = null;
 
-  constructor(private fb: FormBuilder, private apiService: ApiService) {
+  constructor() {
     this.loginForm = this.fb.group({
-      username: ['qwe', [Validators.required, Validators.minLength(3)]],
+      username: ['', [Validators.required, Validators.minLength(3)]],
       password: ['', [Validators.required, Validators.minLength(6)]]
     });
   }

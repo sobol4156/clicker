@@ -1,4 +1,4 @@
-import { Component, ElementRef, ViewChild } from '@angular/core';
+import { Component, ElementRef, inject, ViewChild, AfterViewInit } from '@angular/core';
 import { Subject, throttleTime, timer } from 'rxjs';
 import { ClickerService } from 'src/app/core/clicker/clicker.service';
 
@@ -14,19 +14,24 @@ interface Popup {
   templateUrl: './clicker.component.html',
   styleUrls: ['./clicker.component.scss']
 })
-export class ClickerComponent {
+export class ClickerComponent implements AfterViewInit {
+  clicker = inject(ClickerService)
   popups: Popup[] = [];
 
   private click$ = new Subject<MouseEvent>();
 
-  constructor(public clicker: ClickerService) {
+  constructor() {
     this.click$
       .pipe(throttleTime(50))
       .subscribe((event) => this.handleIncrement(event))
   }
 
-  increment(event: MouseEvent) {
-    this.click$.next(event);
+  increment(event: Event) {
+    if (event instanceof KeyboardEvent) return;
+
+    if (event instanceof MouseEvent) {
+      this.click$.next(event);
+    }
   }
 
   private handleIncrement(event: MouseEvent) {

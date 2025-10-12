@@ -1,7 +1,13 @@
 <div class="clicker">
   <h3>My coins: {{ clicker.myCoins$ | async }}</h3>
 
-  <div class="clicker__wrapper" (click)="increment($event)">
+  <div
+    class="clicker__wrapper"
+    tabindex="0"
+    (click)="increment($event)"
+    (keydown.enter)="increment($event)"
+    (keydown.space)="increment($event)"
+  >
     <div class="clicker__wrapper-main-item">
       <img
         #clickItem

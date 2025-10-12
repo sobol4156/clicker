@@ -1,6 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Observable } from 'rxjs';
 import { ApiService } from 'src/app/core/api/api.service';
 @Component({
   selector: 'app-register',
@@ -8,11 +7,13 @@ import { ApiService } from 'src/app/core/api/api.service';
   styleUrls: ['./register.component.scss']
 })
 export class RegisterComponent {
+  private fb = inject(FormBuilder);
+  private apiService = inject(ApiService);
   registerForm: FormGroup;
   submitted = false;
   backendError: string | null = null;
 
-  constructor(private fb: FormBuilder, private apiService: ApiService) {
+  constructor() {
     this.registerForm = this.fb.group({
       username: ['qwe', [Validators.required, Validators.minLength(3)]],
       password: ['', [Validators.required, Validators.minLength(6)]]

@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { inject, Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
@@ -9,8 +9,7 @@ import { environment } from 'src/environments/environment';
 
 export class ApiService {
   private baseUrl = environment.apiUrl;
-
-  constructor(private http: HttpClient) { }
+  private http = inject(HttpClient);
 
   private getHeaders(): HttpHeaders {
     const token = localStorage.getItem('access_token');

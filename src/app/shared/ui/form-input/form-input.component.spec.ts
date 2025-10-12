@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { FormInputComponent } from './form-input.component';
+import { FormControl, ReactiveFormsModule } from '@angular/forms';
 
 describe('FormInputComponent', () => {
   let component: FormInputComponent;
@@ -8,10 +9,14 @@ describe('FormInputComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [FormInputComponent]
+      declarations: [FormInputComponent],
+      imports: [ReactiveFormsModule]
     });
+    
     fixture = TestBed.createComponent(FormInputComponent);
     component = fixture.componentInstance;
+
+    component.control = new FormControl('');
     fixture.detectChanges();
   });
 

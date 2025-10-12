@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { ClickerService } from 'src/app/core/clicker/clicker.service';
 
 @Component({
@@ -8,10 +8,7 @@ import { ClickerService } from 'src/app/core/clicker/clicker.service';
 })
 export class StoreComponent {
   isOpenStore = false;
-
-  constructor(public clicker: ClickerService) {
-
-  }
+  clicker = inject(ClickerService)
 
   buyStrongClick() {
     this.clicker.buyStrongClick()
@@ -24,7 +21,8 @@ export class StoreComponent {
     this.clicker.resetProgress()
   }
 
-  toggleStore() {
+  toggleStore(event: Event) {
+    if (event instanceof KeyboardEvent) return;
     this.isOpenStore = !this.isOpenStore
   }
 }

@@ -9,7 +9,9 @@ export class AuthComponent {
   isOpenAuth = false;
   isRegister = true;
 
-  toggleAuth() {
+  toggleAuth(event: Event) {
+    if (event instanceof KeyboardEvent) return;
+
     this.isOpenAuth = !this.isOpenAuth
   }
   

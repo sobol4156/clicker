@@ -5,7 +5,10 @@
     alt=""
     [width]="50"
     [height]="50"
-    (click)="toggleAuth()"
+    tabindex="0"
+    (click)="toggleAuth($event)"
+    (keydown.enter)="toggleAuth($event)"
+    (keydown.space)="toggleAuth($event)"
   />
 
   <div class="auth__modal" [class.open]="isOpenAuth">
@@ -15,7 +18,10 @@
         src="assets/svg/cross.svg"
         alt="settings"
         draggable="false"
-        (click)="toggleAuth()"
+        tabindex="0"
+        (click)="toggleAuth($event)"
+        (keydown.enter)="toggleAuth($event)"
+        (keydown.space)="toggleAuth($event)"
       />
     </div>
 
@@ -28,7 +34,12 @@
 
       <div class="handle-form">
         <span>{{ isRegister ? "Уже есть аккаунт?" : "Нет аккаунта?" }}</span>
-        <a (click)="handleForm()">
+        <a
+          (click)="handleForm()"
+          (keydown.enter)="handleForm()"
+          (keydown.space)="handleForm()"
+          tabindex="0"
+        >
           {{ isRegister ? "Войти" : "Зарегистрироваться" }}
         </a>
       </div>
