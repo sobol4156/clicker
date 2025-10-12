@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ClickerService } from 'src/app/core/clicker.service';
+import { ClickerService } from 'src/app/core/clicker/clicker.service';
 
 @Component({
   selector: 'app-store',

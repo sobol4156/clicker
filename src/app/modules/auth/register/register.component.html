@@ -1,1 +1,22 @@
-<p>register works!</p>
+<div class="register">
+  <h2 class="register__title">Регистрация</h2>
+
+  <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+    <app-form-input
+      [label]="'Имя'"
+      [control]="registerForm.controls['username']"
+      [placeholder]="'Введите имя'"
+      [submitted]="submitted"
+    ></app-form-input>
+
+    <app-form-input
+      [label]="'Пароль'"
+      [control]="registerForm.controls['password']"
+      [type]="'password'"
+      [placeholder]="'Введите пароль'"
+      [submitted]="submitted"
+    ></app-form-input>
+
+    <app-button type="default">Зарегистрироваться</app-button>
+  </form>
+</div>

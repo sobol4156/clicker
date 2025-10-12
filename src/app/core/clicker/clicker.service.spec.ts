@@ -1,5 +1,4 @@
 import { TestBed } from '@angular/core/testing';
-
 import { ClickerService } from './clicker.service';
 
 describe('ClickerService', () => {
@@ -57,7 +56,7 @@ describe('ClickerService', () => {
     expect((service as any)._ratioGame.value).toBeGreaterThan(oldRatio);
   })
 
-    it('resetProgress не должен обнулять прогресс и увеличивать ratioGame при недостаточном балансе', () => {
+  it('resetProgress не должен обнулять прогресс и увеличивать ratioGame при недостаточном балансе', () => {
     (service as any)._myCoins.next(4000);
     (service as any)._resetGamePrice.next(5000);
     const oldRatio = (service as any)._ratioGame.value
@@ -73,7 +72,7 @@ describe('ClickerService', () => {
     expect(localStorage.setItem).toHaveBeenCalled();
   })
 
-    it('autoClick при вызове должен добавлять монеты', () => {
+  it('autoClick при вызове должен добавлять монеты', () => {
     (service as any)._myCoins.next(0);
     (service as any)._autoBonus.next(2);
     (service as any)._ratioGame.next(2);

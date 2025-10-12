@@ -3,10 +3,10 @@
   <input
     [type]="type"
     [placeholder]="placeholder"
-    [formControl]="control"
+    [formControl]="formControl"
     [class.invalid]="submitted && control.invalid"
   />
-  
+
   <div class="error" *ngIf="submitted && control.invalid">
     <small *ngIf="control.errors?.['required']">{{ label }} обязателен</small>
     <small *ngIf="control.errors?.['minlength']">
